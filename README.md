@@ -34,8 +34,8 @@ BACKUP YOUR magicband.py BEFORE UPGRADING so you don't lose you sequences config
 * Install Raspbian lite onto pi. BE SURE TO INSTALL THE LITE VERSION: https://www.raspberrypi.org/downloads/raspberry-pi-os/ 
 * Add ssh file and wpa_supplicant.conf to boot partition for wireless SSH access or log directly into Pi
 * sudo apt install git
-* git clone https://github.com/foolishmortalbuilders/magicbandreader.git
-* cd magicbandreader
+* git clone https://github.com/joncherston/foolishmagicbandreader.git
+* cd foolishmagicbandreader
 * sudo sh install.sh  (this will take awhile)
 * cp * /home/pi/.
 * sudo reboot now
