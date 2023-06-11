@@ -3,6 +3,8 @@ Reads magic bands and plays sounds and lights up leds, just like the real thing.
 Use webhook URLS to turn on lights or unlock locks.
 
 # NOTE
+This is a development branch, looking to correct memory leak, buffer underrun, and xdg environment runtime errors as well as the sound issues that go along with those.
+
 Sound files are no longer included. Either supply your own mp3 sound files or contact us through youtube for more information.
 
 # 3D Printer pieces:
