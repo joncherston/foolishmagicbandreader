@@ -21,6 +21,7 @@ import configobj
 from json import dumps
 from httplib2 import Http
 
+os.environ['XDG_RUNTIME_DIR'] = "/run/user/0"
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 
