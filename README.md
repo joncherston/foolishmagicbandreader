@@ -42,8 +42,9 @@ BACKUP YOUR magicband.py BEFORE UPGRADING so you don't lose you sequences config
 * cp * /home/pi/.
 * sudo reboot now
 * log back into pi
-* vi /home/pi/settings.conf. and edit the led counts for your build
-* sudo vi /etc/rc.local
+* add sound files
+* sudo nano /home/pi/settings.conf. and edit the led counts for your build
+* sudo nano /etc/rc.local
   * Before the exit 0 line add:
   * (cd /home/pi; sudo python3 magicband.py &)
 * sudo reboot now
