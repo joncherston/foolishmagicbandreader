@@ -5,7 +5,7 @@ Use webhook URLS to turn on lights or unlock locks.
 # NOTE
 This is a development branch, looking to correct memory leak, buffer underrun, and xdg environment runtime errors as well as the sound issues that go along with those.
 
-Sound files are no longer included. Either supply your own mp3 sound files or contact us through youtube for more information.
+Sound files are no longer included. Either supply your own mp3 sound files or contact us through youtube for more information. To reduce errors, use mp3 files rather than wav.
 
 # 3D Printer pieces:
 Find the pieces to make this model on thingiverse:
