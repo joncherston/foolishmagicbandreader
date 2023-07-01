@@ -1,15 +1,18 @@
 # magicbandreader
 Reads magic bands and plays sounds and lights up leds, just like the real thing.
-Use webhook URLS to turn on lights or unlock locks.
+Use webhook URLS to trigger IOT devices.
+Thanks to foolishmortalbuilders for initial creation of the project from which this fork was created.
 
 # NOTE
-This is a development branch, looking to correct memory leak, buffer underrun, and xdg environment runtime errors as well as the sound issues that go along with those.
+This is a development branch, looking to correct memory leak, buffer underrun, and xdg environment runtime errors as well as the sound issues that accompany those errors.  
+This branch is also looking to optimize for a raspberry pi zero w to reduce hardware costs.
 
-Sound files are no longer included. Either supply your own mp3 sound files or contact us through youtube for more information. To reduce errors, use mp3 files rather than wav.
+Sound files are not included. Either supply your own mp3 sound files or search the internet for the files you would like to use.
 
 # 3D Printer pieces:
 Find the pieces to make this model on thingiverse:
 https://www.thingiverse.com/thing:4271417
+I am actively working on development of model casing and brackets
 
 # Upgrade
 If you are upgrading from a previous version, be sure to re-run the install script to pick up the new required files:
@@ -34,7 +37,7 @@ BACKUP YOUR magicband.py BEFORE UPGRADING so you don't lose you sequences config
 * See YouTube video https://youtu.be/HJ8CTLgmcSk  (UPDATED video coming June 15th 2020) 
 
 * Install Raspbian lite onto pi. BE SURE TO INSTALL THE LITE VERSION: https://www.raspberrypi.org/downloads/raspberry-pi-os/ 
-* Add ssh file and wpa_supplicant.conf to boot partition for wireless SSH access or log directly into Pi
+* Either use the advanced settings option when installing Raspbian onto the SD Card, Add ssh file and wpa_supplicant.conf to boot partition for wireless SSH access, or log directly into Pi
 * sudo apt install git
 * git clone https://github.com/joncherston/foolishmagicbandreader.git
 * cd foolishmagicbandreader
@@ -60,6 +63,7 @@ Set the ring_pixels and mickey_pixel counts to the correct value
 
 If the install fails, try running this command first:
 sudo apt-get update
+If you have difficulty with connecting to your network, use nmcli: http://www.intellamech.com/RaspberryPi-projects/rpi_nmcli.html
 
 
 
