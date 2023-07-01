@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from __future__ import print_function
 import argparse
 import binascii
@@ -19,8 +19,7 @@ from os import path
 import random 
 import configobj
 from json import dumps
-from httplib2 import Http
-
+from http.client import HTTPConnection
 os.environ['XDG_RUNTIME_DIR'] = "/run/user/0"
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
@@ -64,10 +63,16 @@ log = logging.getLogger('main')
 
 log.setLevel(logging.CRITICAL)
 
-# Pre init helps to get rid of sound lag
-pygame.mixer.pre_init(44100, -16, 1, 512 )
+# Pre init helps to get rid of sound lag - Commenting Out to remove alsa 
+#pygame.mixer.pre_init(44100, -16, 1, 512 )
+#pygame.mixer.init()
+#pygame.init()
+
+# Attempt to load sound via pygame
+# pygame setup
 pygame.mixer.init()
-pygame.init()
+speaker_volume = 0.9 #90% volume
+pygame.mixer.music.set_volume(speaker_volume)
 
 class MagicBand(cli.CommandLineInterface):
     def __init__(self):
@@ -77,7 +82,7 @@ class MagicBand(cli.CommandLineInterface):
         self.pixels = neopixel.NeoPixel(pixel_pin, self.total_pixels, brightness=1.0, auto_write=False, pixel_order=neopixel.RGB)
         self.rdwr_commands = { }
         self.playStartupSequence() 
-        parser = ArgumentParser(
+        parser = argparse.ArgumentParser(
                 formatter_class=argparse.RawDescriptionHelpFormatter,
                 description="")
         super(MagicBand, self).__init__(parser, groups="rdwr dbg card clf")
@@ -158,12 +163,13 @@ class MagicBand(cli.CommandLineInterface):
             webhooks = webhooks if type(webhooks) == list else [webhooks,]
         for hook in webhooks:
            message_headers = {'Content-Type': 'application/json; charset=UTF-8'}
-           http_obj = Http()
-           response = http_obj.request(
-              uri=hook,
+           http_obj = HTTPConnection(hook)
+           http_obj.request(
               method='POST',
+              url=hook,
               headers=message_headers,
            )
+           response = http_obj.getresponse()
            print(response)
 
         # All lights on
@@ -268,10 +274,6 @@ class ArgparseError(SystemExit):
 
     def __str__(self):
         return '{0}: {1}'.format(self.args[1], self.args[2])
-
-class ArgumentParser(argparse.ArgumentParser):
-    def error(self, message):
-        raise ArgparseError(self.prog, message)
 
 
 if __name__ == '__main__':
