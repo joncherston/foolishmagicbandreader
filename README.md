@@ -12,7 +12,7 @@ Sound files are not included. Either supply your own mp3 sound files or search t
 # 3D Printer pieces:
 Find the pieces to make this model on thingiverse:
 https://www.thingiverse.com/thing:4271417
-I am actively working on development of model casing and brackets
+I am actively working on development of model casing including component brackets
 
 # Upgrade
 If you are upgrading from a previous version, be sure to re-run the install script to pick up the new required files:
@@ -31,6 +31,7 @@ BACKUP YOUR magicband.py BEFORE UPGRADING so you don't lose you sequences config
 * Connect PIXEL LEDS to  DATA on GPIO-18 (pin 12), pixel GnD to GND (pin 6) and pixel positive to +5v (pin 2)
 * Connect USB RFID reader
 * Connect Speaker via HDMI connector (ONBOARD SPEAKER WILL NOT WORK DUE TO Pixel LEDS!)
+* For additional sound use a small amp (wiring instructions to come)
 
 # Installation
 
